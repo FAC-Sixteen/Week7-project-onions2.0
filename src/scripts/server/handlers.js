@@ -59,7 +59,7 @@ const getOpinionsHandler = (response, url) => {
         if (err) return serverError(err, response);
         response.writeHead(200, {'Content-Type' : 'application/json'});
         response.end(JSON.stringify(opinions))
-    });
+    },url);
 };
 
 

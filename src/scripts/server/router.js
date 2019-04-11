@@ -2,7 +2,7 @@ const { homeHandler,
         publicHandler,
         getActionsHandler,
         getOpinionsHandler,
-//  postHandler
+        postHandler,
         errorHandler } = require('./handlers');
 
 const router = (request, response) => {
@@ -15,8 +15,8 @@ const router = (request, response) => {
         getActionsHandler(response);
     } else if(url.includes('/get-opinions')){
         getOpinionsHandler(response, url);
-    } else if (url === '/post-opinions') {
-        postHandler(request, response, url);
+    } else if (url === '/post-opinion') {
+        postHandler(request, response);
     } else {
         errorHandler(response);
     }

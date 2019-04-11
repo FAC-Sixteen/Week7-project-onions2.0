@@ -27,6 +27,12 @@
                 <th>Date</th>
             </tr>
         </table>
+        <form class="form" action="/post-opinion" method="POST">
+            <input type="hidden" id="form-id-to-send" name="action_id" value="">
+            <input type="text" name="name" value="" placeholder="Your name">
+            <input type="text" name="opinion" value="" placeholder="Your opinion">
+            <button type="submit" name="button">+ Add Opinion</button>
+        </form>
     </section>
     <script src="./public/script.js"></script>
 </body>

@@ -1,5 +1,6 @@
 const actionTable = document.querySelector('.action-table');
 const opinionTable = document.querySelector('.opinion-table');
+const formActionId = document.querySelector('#form-id-to-send');
 
 const buildEachRow = (data, tableToFill) => {
     console.log('This is the data:', data);
@@ -61,6 +62,10 @@ fetch('/get-actions')
 const getOpinionTable = (e) => {
     const highlitAction = e.target.parentElement.value;
     const urlToSend = `/get-opinions?=${highlitAction}`; 
+
+    //sets the value of the hidden input to the selected action's id
+    //for postData to use
+    formActionId.value = highlitAction;
 fetch( urlToSend)
     .then(response => {
         if (response.ok) {
@@ -74,3 +79,4 @@ fetch( urlToSend)
         console.log('The fetch error is', error);
 });
 };
+

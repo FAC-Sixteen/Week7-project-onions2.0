@@ -16,7 +16,7 @@ const router = (request, response) => {
         postHandler(request, response, url);
     } else {
         errorHandler(response);
-    };
+    }
 };
 
 module.exports = router;

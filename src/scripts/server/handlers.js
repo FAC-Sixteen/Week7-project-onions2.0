@@ -48,4 +48,4 @@ module.exports = {
     homeHandler,
     publicHandler,
     errorHandler
-}
+};

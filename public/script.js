@@ -7,10 +7,13 @@ fetch('/get-actions')
     .then(buildEachRow(err, response, actionTable));
 
 //on click of action to get opinion table
-fetch('/get-opinions')
+const getOpinionTable = (e) => {
+    console.log(e.target, 'is e.target');
+    const urlToSend = `/get-opinions?=`
+fetch( urlToSend)
     .then(response => response.json())
     .then(buildEachRow(err, response, opinionTable));
-
+}
 const buildEachRow = (err, data, tableToFill) => {
     if(err) {
         console.log(err, 'Error in buildEachRow function');
@@ -31,6 +34,9 @@ const buildEachRow = (err, data, tableToFill) => {
         inputDate.textContent = input.date;
         inputRow.appendChild(inputDate);
         
+        if (tableToFill === actionTable) {
+            inputRow.addEventListener('click', getOpinionTable )
+        }
         tableToFill.appendChild(inputRow);
     });
 }

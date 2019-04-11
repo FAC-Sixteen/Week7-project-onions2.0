@@ -4,7 +4,9 @@
   "description": "weekly project - sql action points database",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/scripts/server/server.js",
+    "go": "nodemon src/scripts/server/server.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +17,14 @@
   "bugs": {
     "url": "https://github.com/FAC-Sixteen/Week6-project-Onions/issues"
   },
-  "homepage": "https://github.com/FAC-Sixteen/Week6-project-Onions#readme"
+  "homepage": "https://github.com/FAC-Sixteen/Week6-project-Onions#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "jshint": "^2.10.2",
+    "nodemon": "^1.18.11",
+    "nyc": "^13.3.0",
+    "supertest": "^4.0.2",
+    "tap-bunny": "^1.0.4",
+    "tape": "^4.10.1"
+  }
 }

@@ -1,8 +1,8 @@
-const fs = require('fs');
+const { readFile } = require('fs');
 const path = require('path');
 
-const getData = require('../queries/getData');
-const postData = require('../queries/postData');
+// const getData = require('../queries/getData');
+// const postData = require('../queries/postData');
 
 const serverError = (err, response) => {
     response.writeHead(500, {'Content-Type': 'text/html'});
@@ -43,3 +43,9 @@ const errorHandler = response => {
     response.writeHead(404, {'Content-Type':'text/html'});
     response.end('<h1>404 Onions Missing</h1>');
 };
+
+module.exports = {
+    homeHandler,
+    publicHandler,
+    errorHandler
+}

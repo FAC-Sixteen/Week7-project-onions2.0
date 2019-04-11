@@ -2,14 +2,14 @@ BEGIN;
 
 CREATE TABLE actions (
     id SERIAL PRIMARY KEY,
-    action point VARCHAR(100) NOT NULL,
+    action_point VARCHAR(100) NOT NULL,
     date DATE
 );
 
-INSERT INTO actions (action, date)
+INSERT INTO actions (action_point, date)
 VALUES
-    ('stop using gendered language when referring to the entire group (see: "guys")', 2019-03-08),
-    ('use Lost and Founders to keep track of action points and opinions', 2019-04-12);
+    ('stop using gendered language when referring to the entire group (see: "guys")', '2019-03-08'),
+    ('use Lost and Founders to keep track of action points and opinions', '2019-04-12');
 
 CREATE TABLE opinions (
     id SERIAL PRIMARY KEY,

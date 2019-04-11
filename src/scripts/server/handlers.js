@@ -45,22 +45,22 @@ const errorHandler = response => {
 };
 
 
- const getActionsHandler = (response) => {
- getData.actionQuery((err, actions) => {
-if (err) return serverError(err, response);
-response.writeHead(200, {'Content-Type' : 'application/json'});
-response.end(JSON.stringify(actions))
- });
- } 
+const getActionsHandler = (response) => {
+    getData.actionQuery((err, actions) => {
+        if (err) return serverError(err, response);
+        response.writeHead(200, {'Content-Type' : 'application/json'});
+        response.end(JSON.stringify(actions))
+    });
+};
 
- const getOpinionsHandler = (response, url) => {
+const getOpinionsHandler = (response, url) => {
      //to be continued we haven't written the dom for this yet
-getData.opinionQuery((err, opinions) => {
-if (err) return serverError(err, response);
-response.writeHead(200, {'Content-Type' : 'application/json'});
-response.end(JSON.stringify(opinions))
- });
- }
+    getData.opinionQuery((err, opinions) => {
+        if (err) return serverError(err, response);
+        response.writeHead(200, {'Content-Type' : 'application/json'});
+        response.end(JSON.stringify(opinions))
+    });
+};
 
 
 module.exports = {

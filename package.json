@@ -26,5 +26,9 @@
     "supertest": "^4.0.2",
     "tap-bunny": "^1.0.4",
     "tape": "^4.10.1"
+  },
+  "dependencies": {
+    "env2": "^2.2.2",
+    "pg": "^7.9.0"
   }
 }

@@ -7,9 +7,9 @@ const { homeHandler,
 const router = (request, response) => {
     const url = request.url;
     if (url === '/') {
-        homeHandler(request, response);
+        homeHandler(response);
     } else if (url.includes('public')) {
-        publicHandler(request, response, url);
+        publicHandler(response, url);
     } else if (url.includes('get-')) {
         getHandler(request, response, url);
     } else if (url === '/post-opinions') {

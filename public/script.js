@@ -1,25 +1,37 @@
 const actionTable = document.querySelector('.action-table');
+const opinionTable = document.querySelector('.opinion-table');
 
+//on load function to get current actions table
+fetch('/get-actions')
+    .then(response => response.json())
+    .then(buildEachRow(err, response, actionTable));
 
+//on click of action to get opinion table
+fetch('/get-opinions')
+    .then(response => response.json())
+    .then(buildEachRow(err, response, opinionTable));
 
-const buildEachAction = (err, data) => {
+const buildEachRow = (err, data, tableToFill) => {
     if(err) {
-        console.log(err, 'Error in buildEachAction function');
+        console.log(err, 'Error in buildEachRow function');
     } else {
-        const actions = JSON.parse(data);
-        actions.forEach((action) => {
-        const actionList = document.createElement('tr');
-        const actionListId = document.createElement('td');
-        actionListId.textContent = action.id;
-        actionList.appendChild(actionListId);
+        const inputs = JSON.parse(data);
+        inputs.forEach((input) => {
+        const inputRow = document.createElement('tr');
 
-        const actionListName = document.createElement('td');
-        actionListName.textContent = action.name;
-        actionList.appendChild(actionListName);
+        const inputId = document.createElement('td');
+        inputId.textContent = input.id;
+        inputRow.appendChild(inputId);
 
-        const actionListDate = document.createElement('td');
-        actionListDate.textContent = action.date;
-        actionList.appendChild(actionListDate);
+        const inputName = document.createElement('td');
+        inputName.textContent = input.name;
+        inputRow.appendChild(inputName);
+
+        const inputDate = document.createElement('td');
+        inputDate.textContent = input.date;
+        inputRow.appendChild(inputDate);
+        
+        tableToFill.appendChild(inputRow);
     });
 }
     

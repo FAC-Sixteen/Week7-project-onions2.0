@@ -2,9 +2,14 @@ const { Pool } = require('pg');
 const url = require('url');
 require('env2')('./config.env');
 
-if (!process.env.DATABASE_URL) throw new Error('Environment variable DB_URL must be set!');
+let DATABASE_URL = process.env.DATABASE_URL;
+if (process.env.NODE_ENV === 'test') {
+    DATABASE_URL = process.env.TEST_DATABASE_URL;
+};
 
-const params = url.parse(process.env.DATABASE_URL);
+if (!DATABASE_URL) throw new Error('Environment variable DB_URL must be set!');
+
+const params = url.parse(DATABASE_URL);
 const[ username, password ] = params.auth.split(':');
 
 const options = {

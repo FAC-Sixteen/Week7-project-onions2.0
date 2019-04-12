@@ -9,6 +9,7 @@
 
 ## Overview
 
+This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
 ## Built with:
 * html
 * css

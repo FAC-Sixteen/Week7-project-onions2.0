@@ -33,7 +33,9 @@ const buildEachRow = (data, tableToFill) => {
     }
     
     const inputDate = document.createElement('td');
-    inputDate.textContent = input.date;
+    let inputDateStamp = input.date;
+    let formattedDate = new Date(inputDateStamp.replace(' ', 'T'));
+    inputDate.textContent = formattedDate;
     inputRow.appendChild(inputDate);
     
     if (tableToFill === actionTable) {

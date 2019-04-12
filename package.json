@@ -4,9 +4,10 @@
   "description": "weekly project - sql action points database",
   "main": "script.js",
   "scripts": {
-    "test": "jshint src/scripts/server/*.js",
+    "test": "NODE_ENV=test tape src/scripts/tests/db_test.js | tap-bunny",
     "start": "node src/scripts/server/server.js",
-    "go": "nodemon src/scripts/server/server.js"
+    "go": "nodemon src/scripts/server/server.js",
+    "testtest": "NODE_ENV=test node src/database/db_build.js"
   },
   "repository": {
     "type": "git",

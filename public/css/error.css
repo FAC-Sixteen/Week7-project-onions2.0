@@ -1,0 +1,30 @@
+video {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    object-fit: cover;
+    position: absolute;
+}
+
+.video-overlay {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(192,192,192,0.2)
+}
+
+.message {
+    text-align: center;
+    font-size: 10rem;
+    font-family: 'Dosis', sans-serif;
+    font-weight: bolder;
+    color: rgba(192,192,192,0.6)
+}
+
+footer {
+    width: 100vw;
+    font-family: 'Dosis', sans-serif;
+    background-color: rgb(192,192,192)
+}

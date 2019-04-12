@@ -1,0 +1,31 @@
+body {
+  box-sizing: border-box;
+  font-family: 'Dosis', sans-serif;
+}
+
+h1 {
+text-align: center;
+color:#52528C;
+}
+
+.action-table {
+margin: 20px auto;
+border: 2px solid black;
+
+}
+
+.opinion-section{
+  display: flex;
+  flex-direction: column; 
+  align-content: center;
+}
+
+
+.opinion-table{
+border: 2px solid black;
+margin: 20px auto;
+}
+
+.container{
+margin: 20px auto;
+}

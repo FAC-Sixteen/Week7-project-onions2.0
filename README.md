@@ -78,6 +78,7 @@ This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
     * I have an opintion.
 * naming functions --> 'action' to action **and** table --> action vs actionList --> input and inputRow
 * using fetch! so much easier than xhr requests!
+* things take time!
 
 ### CI
 * travis caught all our jshint issues that prevented travis from passing the test checks

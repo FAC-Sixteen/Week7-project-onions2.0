@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="public/assets/Robinweatherall-Veggers-Onion.ico">
+    <link rel="stylesheet" href="public/css/style.css">
     <title>Lost and Found[ers & Coders]</title>
 </head>
 <body>
@@ -26,12 +27,14 @@
                 <th>Date</th>
             </tr>
         </table>
+        <div class="container">
         <form class="form" action="/post-opinion" method="POST">
             <input type="hidden" id="form-id-to-send" name="action_id" value="">
             <input type="text" name="name" value="" placeholder="Your name" required pattern="[\w\s]+">
             <input type="text" name="opinion" value="" placeholder="Your opinion" required pattern="[\w\s-?!']+">
             <button type="submit" name="button">+ Add Opinion</button>
         </form>
+        </div>
     </section>
     <script src="./public/script.js"></script>
 </body>

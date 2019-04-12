@@ -33,7 +33,8 @@ const publicHandler = (response, url) => {
             png: 'image/png',
             jpg: 'image/jpeg',
             jpeg: 'image/jpeg',
-            svg: 'image/svg'
+            svg: 'image/svg',
+            mp4: 'video/mp4'
         };
         response.writeHead(200, {'Content-Type': extensionType[extension]});
         response.end(file);    
@@ -72,9 +73,17 @@ const postHandler = (request, response) => {
     });
 };
 
-const errorHandler = response => {
-    response.writeHead(404, {'Content-Type':'text/html'});
-    response.end('<h1>404 Onions Missing</h1>');
+const errorHandler = (request, response) => {
+    readFile(path.join(__dirname, "../../../public/error.html"), (error, file) => {
+        if (error) {
+            console.log(error);
+            return;
+        }
+        else {
+        response.writeHead(404, { "Content-Type": "text/html" });
+        response.end(file);
+        }
+    })
 };
 
 module.exports = {

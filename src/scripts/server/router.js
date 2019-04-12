@@ -18,7 +18,7 @@ const router = (request, response) => {
     } else if (url === '/post-opinion') {
         postHandler(request, response);
     } else {
-        errorHandler(response);
+        errorHandler(request, response);
     }
 };
 

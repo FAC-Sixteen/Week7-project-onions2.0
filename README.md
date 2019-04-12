@@ -8,16 +8,19 @@
 * Sylvia [@seabasshoang](https://github.com/seabasshoang)
 
 ## Overview
-SGC actions and opinions tracker!
+SGC actions and opinions tracker! 
 Submit your opinions to actions discussed during SGC
 
 This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
+
 ## Built with:
 * html
 * css
 * javascript
 * node.js
 * heroku
+* postgresql
+* travis
 
 ## How to set up?
 - git clone this repo
@@ -40,24 +43,35 @@ This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
 - [ ] CSS
 - [ ] deleteData.js query
 - [x] onion error page
-- [ ] delete opnion functionality
+- [ ] delete opinion functionality
 
-## 📝 Planning 
-
-## Process
-
+## 📝 Planning & Process
 ### Day 1
 * brainstormed ideas
 * separated goals and stretch goals
 * drew out file structure and user journey
+![1](https://i.imgur.com/YplWc1Y.jpg)
+![2](https://i.imgur.com/7JhmswH.jpg)
+![schema](https://i.imgur.com/4qDfeLq.jpg)
+![user journey w/ us](https://i.imgur.com/Br8VYZ8.jpg)
+![user journey](https://i.imgur.com/CnwtICM.jpg)
+![kate](https://i.imgur.com/7Phd2Yn.jpg)
 
 ### Day 2
 * set-up index.html and server stuff
+* deployed to heroku
+* set up travis
+* created our database
 * Set up Post and Get quries 
+* dom stuff to populate our tables
 
 ### Day 3
+* testing
+* issues
+* css
 
 ## 💡 Problems/What we learnt
+![](https://media.giphy.com/media/fNtPh5RhVnANq/giphy.gif)
 #### "Let's not count our chickens before they hatch." - Joko
 
 * spelling 'table' and 'opinion'
@@ -66,6 +80,6 @@ This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
 * using fetch! so much easier than xhr requests!
 
 ### CI
+* travis caught all our jshint issues that prevented travis from passing the test checks
 
 ![](https://i.imgur.com/cVjsEVe.png)
-

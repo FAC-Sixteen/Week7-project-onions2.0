@@ -29,8 +29,8 @@
         </table>
         <form class="form" action="/post-opinion" method="POST">
             <input type="hidden" id="form-id-to-send" name="action_id" value="">
-            <input type="text" name="name" value="" placeholder="Your name">
-            <input type="text" name="opinion" value="" placeholder="Your opinion">
+            <input type="text" name="name" value="" placeholder="Your name" required pattern="[\w\s]+">
+            <input type="text" name="opinion" value="" placeholder="Your opinion" required pattern="[\w\s-?!']+">
             <button type="submit" name="button">+ Add Opinion</button>
         </form>
     </section>

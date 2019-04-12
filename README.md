@@ -8,6 +8,8 @@
 * Sylvia [@seabasshoang](https://github.com/seabasshoang)
 
 ## Overview
+SGC actions and opinions tracker!
+Submit your opinions to actions discussed during SGC
 
 This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
 ## Built with:
@@ -38,6 +40,7 @@ This project is hosted on Heroku : https://lost-and-founders.herokuapp.com/
 - [ ] CSS
 - [ ] deleteData.js query
 - [x] onion error page
+- [ ] delete opnion functionality
 
 ## 📝 Planning 
 

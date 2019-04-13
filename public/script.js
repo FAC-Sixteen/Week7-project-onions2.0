@@ -3,39 +3,46 @@ const opinionTable = document.querySelector('.opinion-table');
 const formActionId = document.querySelector('#form-id-to-send');
 
 const buildEachRow = (data, tableToFill) => {
+   
     while(tableToFill.childNodes[2]) {
         tableToFill.removeChild(tableToFill.childNodes[2])
     };
     
+    if (tableToFill === opinionTable){
+        const opinionSection = document.querySelector('.opinion-section');
+        opinionSection.setAttribute("style", "display:flex;");
+    }
     const inputs = data;
 
     inputs.forEach((input) => {
-    const inputRow = document.createElement('tr');
+    const inputRow = document.createElement('li');
     inputRow.value = input.id;
 
     if (tableToFill === actionTable) {
-        const inputId = document.createElement('td');
+        const inputId = document.createElement('p');
         inputId.textContent = input.id;
         inputRow.appendChild(inputId);
 
-        const inputAction = document.createElement('td');
+        const inputAction = document.createElement('p');
         inputAction.textContent = input.action_point;
         inputRow.appendChild(inputAction);
 
     } else if (tableToFill === opinionTable) {
-        const inputName = document.createElement('td');
+        const inputName = document.createElement('p');
         inputName.textContent = input.name;
         inputRow.appendChild(inputName);
 
-        const inputOpinion = document.createElement('td');
+        const inputOpinion = document.createElement('p');
         inputOpinion.textContent = input.opinion;
         inputRow.appendChild(inputOpinion);
     }
     
-    const inputDate = document.createElement('td');
+    const inputDate = document.createElement('p');
     let inputDateStamp = input.date;
     let formattedDate = new Date(inputDateStamp.replace(' ', 'T'));
-    inputDate.textContent = formattedDate;
+    let finalDate = formattedDate.toDateString();
+    
+    inputDate.textContent = finalDate;
     inputRow.appendChild(inputDate);
     
     if (tableToFill === actionTable) {

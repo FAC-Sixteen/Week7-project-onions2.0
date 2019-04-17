@@ -1,17 +1,75 @@
+html {
+  scroll-behavior: smooth;
+}
+
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-style: normal;
+  font-weight: 700;
+  src:
+       url('public/assets/fonts/cormorant-garamond-v6-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('public/assets/fonts/cormorant-garamond-v6-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+
 body {
   box-sizing: border-box;
   font-family: 'Dosis', sans-serif;
 }
 
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+li {
+  list-style: none;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px 5px;
+}
+
+p{ overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+h6:first-child, p:first-child {
+  width: 20%;
+
+}
+h6:nth-child(2), p:nth-child(2) {
+  width: 60%;
+}
+
+h6:nth-child(3), p:nth-child(3) {
+  width: 20%;
+}
+h6, p{
+  margin:0 10px;
+}
+
 h1 {
-text-align: center;
+  font-family: 'Cormorant Garamond';
+color:#52528C;
+
+  letter-spacing: 1px;
+  font-size: 3em;
+  text-align: center;
+  margin-top: 3rem;
+}
+.lineThrough{
+  text-decoration: line-through;
+}
+h6 {
+  font-family: 'Cormorant Garamond';
 color:#52528C;
 }
 
 .action-table {
 margin: 20px auto;
 border: 2px solid black;
-
 }
 
 .opinion-section{
@@ -29,3 +87,21 @@ margin: 20px auto;
 .container{
 margin: 20px auto;
 }
+
+.opinion-section{
+  display: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 10px auto;
+}
+
+input, textarea {
+  margin: 10px 0;
+}
+
+testar
+

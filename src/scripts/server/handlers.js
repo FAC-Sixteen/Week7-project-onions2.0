@@ -34,7 +34,9 @@ const publicHandler = (response, url) => {
             jpg: 'image/jpeg',
             jpeg: 'image/jpeg',
             svg: 'image/svg',
-            mp4: 'video/mp4'
+            mp4: 'video/mp4',
+            woff: 'font/woff',
+             ttf:  'font/ttf'
         };
         response.writeHead(200, {'Content-Type': extensionType[extension]});
         response.end(file);    

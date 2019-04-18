@@ -4,6 +4,7 @@ const qs = require('qs');
 
 const getData = require('../queries/getData');
 const postData = require('../queries/postData');
+const loginQuery = require('../queries/loginQuery');
 
 const serverError = (err, response) => {
     response.writeHead(500, {'Content-Type': 'text/html'});
@@ -19,17 +20,11 @@ const loginHandler = (request, response) => {
     request.on('end', () => {
         const { username, password } = qs.parse(data);
 
-        hashPassword(password, (err, hash) => {
-            if (err) console.log(err, ' is err');
-            // console.log(result, ' is result');
-            // console.log(storedSalt, ' is storedSalt outside')
-
-            // this is the callback!
-            loginQuery(username, hash, err => {
+            loginQuery(username, password, err => {
                 if (err) return serverError(err, response);
                 response.writeHead(302, {'Location': '/'});
                 response.end();
-            }); 
+          
         });
     });
 };
@@ -117,5 +112,6 @@ module.exports = {
     errorHandler,
     getActionsHandler,
     getOpinionsHandler,
-    postHandler
+    postHandler,
+    loginHandler
 };

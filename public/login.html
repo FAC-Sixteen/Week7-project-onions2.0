@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+        <section class="login_section">
+            <h2>
+                LOG IN
+            </h2>
+            <form action="/login" method="post">
+            <label for="login_username">Username</label>
+            <input type="text" class="username" id="login_username" name="login_username" placeholder="Username" maxlength="20" required>
+            <label for="login_password">Password</label>
+            <input type="password" class="password" id="login_password" name="login_password" placeholder="Password" required>
+            <button class="button" type="submit">Log In</button>
+            </form>
+            <div id="error-message">
+
+            </div>
+        </section>
+
+        <!-- <section class="signup_section">
+            <h2>
+                SIGN UP
+            </h2>
+            <form action="/signup" method="post">
+            <label for="signup_username">Username</label>
+            <input type="text" class="username" id="signup_username" name="signup_username" maxlength="20" required pattern="^[A-Za-z0-9]+(?:[_-][A-Za-z0-9]+)*$" placeholder="Username">
+            <label for="signup_password">Password</label>
+            <input type="password" class="password" id="signup_password" name="signup_password" placeholder="Password">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="signup_confirmPassword" id="confirmPassword" name="confirmPassword" placeholder="Re-enter your password">
+            <button class="button" type="submit">Sign up</button>
+            </form>
+        </section> -->
+        
+    </div>
+    <script src="/dom_login.js"></script>
+</body>
+</html>

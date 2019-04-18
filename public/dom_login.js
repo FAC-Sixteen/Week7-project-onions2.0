@@ -1,4 +1,4 @@
-const usernameInput = document.querySelector('#username');
+const usernameInput = document.querySelector('#login_username');
 const passwordInput = document.querySelector('#password');
 
 const errorMessage = document.querySelector('#error-message');
@@ -13,5 +13,7 @@ const checkUsername = () => {
     }
 }
 usernameInput.addEventListener('input', checkUsername);
+
+
 
 //check password 

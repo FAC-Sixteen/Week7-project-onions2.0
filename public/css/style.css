@@ -103,5 +103,11 @@ input, textarea {
   margin: 10px 0;
 }
 
-testar
+/* style for login page*/
+
+
+
+input:invalid {
+  border: 2px solid red;
+}
 

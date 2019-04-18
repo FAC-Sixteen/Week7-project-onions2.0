@@ -1,5 +1,20 @@
 BEGIN;
 
+DROP TABLE IF EXISTS users CASCADE;
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(20) NOT NULL,
+    password TEXT NOT NULL
+);
+
+INSERT INTO users (username, password)
+VALUES
+    ('fishbowl', 'blowfish4lgorithm'),
+    ('sealvia', 'pa55word'),
+    ('jk', 'aDuMmY'),
+    ('cait', 'pa55word'),
+
 DROP TABLE IF EXISTS actions CASCADE;
 
 CREATE TABLE actions (

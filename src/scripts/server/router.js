@@ -9,6 +9,8 @@ const router = (request, response) => {
     const url = request.url;
     if (url === '/') {
         homeHandler(response);
+    } else if (url === '/login' && request.method === 'post') {
+        loginHandler(request, response);
     } else if (url.includes('public')) {
         publicHandler(response, url);
     } else if (url === '/get-actions') {

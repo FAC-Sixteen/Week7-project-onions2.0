@@ -11,6 +11,29 @@ const serverError = (err, response) => {
     console.log(err);
 };
 
+const loginHandler = (request, response) => {
+    let data = '';
+    request.on('data', chunk => {
+        data += chunk;
+    });
+    request.on('end', () => {
+        const { username, password } = qs.parse(data);
+
+        hashPassword(password, (err, hash) => {
+            if (err) console.log(err, ' is err');
+            // console.log(result, ' is result');
+            // console.log(storedSalt, ' is storedSalt outside')
+
+            // this is the callback!
+            loginQuery(username, hash, err => {
+                if (err) return serverError(err, response);
+                response.writeHead(302, {'Location': '/'});
+                response.end();
+            }); 
+        });
+    });
+};
+
 const homeHandler = response => {
     const filePath = path.join(__dirname, '../../..', 'public', 'index.html');
     readFile(filePath, (err, file) => {

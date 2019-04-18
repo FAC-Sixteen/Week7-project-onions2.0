@@ -12,6 +12,7 @@ const hashPassword = (password, callback) => {
 };
 
 const comparePasswords = (password, hashedPassword, callback) => {
+    console.log('I have gone into compare.')
     bcrypt.compare(password, hashedPassword, callback);
 };
 

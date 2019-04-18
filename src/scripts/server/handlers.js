@@ -1,10 +1,13 @@
 const { readFile } = require('fs');
 const path = require('path');
 const qs = require('qs');
+const bcrypt = require('bcryptjs');
 
 const getData = require('../queries/getData');
 const postData = require('../queries/postData');
 const loginQuery = require('../queries/loginQuery');
+
+const { hashPassword,comparePasswords } = require( '../hash.js')
 
 const serverError = (err, response) => {
     response.writeHead(500, {'Content-Type': 'text/html'});
@@ -18,16 +21,24 @@ const loginHandler = (request, response) => {
         data += chunk;
     });
     request.on('end', () => {
+        console.log(data);
         const { username, password } = qs.parse(data);
-
-            loginQuery(username, password, err => {
+           
+            loginQuery(username, (err, storedPassword) => {
                 if (err) return serverError(err, response);
-                response.writeHead(302, {'Location': '/'});
-                response.end();
-          
+                const isMatch = bcrypt.compare(password, storedPassword);
+                if (!isMatch) { 
+                    response.writeHead(401, {'Content-Type':'text/html'});
+                    response.end('Incorrect password!');
+                } else if (isMatch) {
+                    response.writeHead(302, 
+                        {'Location': '/',
+                         'Set-Cookie':'logged_in=true'});
+                    return response.end();
+                }
+                });                
         });
-    });
-};
+    };
 
 const homeHandler = response => {
     const filePath = path.join(__dirname, '../../..', 'public', 'index.html');

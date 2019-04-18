@@ -6,6 +6,8 @@ const getData = require('../queries/getData');
 const postData = require('../queries/postData');
 const loginQuery = require('../queries/loginQuery');
 
+const { hashPassword,comparePasswords } = require( '../hash.js')
+
 const serverError = (err, response) => {
     response.writeHead(500, {'Content-Type': 'text/html'});
     response.end('<h1>Sorry problem loading the onions</h1>');
@@ -18,10 +20,12 @@ const loginHandler = (request, response) => {
         data += chunk;
     });
     request.on('end', () => {
-        const { username, password } = qs.parse(data);
-
-            loginQuery(username, password, err => {
+        const { username, pasword2 } = qs.parse(data);
+           
+            loginQuery (username, (err, storedPassword)) => {
                 if (err) return serverError(err, response);
+                comparePasswords(pasword2, )                
+
                 response.writeHead(302, {'Location': '/'});
                 response.end();
           

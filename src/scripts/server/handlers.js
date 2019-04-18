@@ -4,11 +4,29 @@ const qs = require('qs');
 
 const getData = require('../queries/getData');
 const postData = require('../queries/postData');
+const loginQuery = require('../queries/loginQuery');
 
 const serverError = (err, response) => {
     response.writeHead(500, {'Content-Type': 'text/html'});
     response.end('<h1>Sorry problem loading the onions</h1>');
     console.log(err);
+};
+
+const loginHandler = (request, response) => {
+    let data = '';
+    request.on('data', chunk => {
+        data += chunk;
+    });
+    request.on('end', () => {
+        const { username, password } = qs.parse(data);
+
+            loginQuery(username, password, err => {
+                if (err) return serverError(err, response);
+                response.writeHead(302, {'Location': '/'});
+                response.end();
+          
+        });
+    });
 };
 
 const homeHandler = response => {
@@ -94,5 +112,6 @@ module.exports = {
     errorHandler,
     getActionsHandler,
     getOpinionsHandler,
-    postHandler
+    postHandler,
+    loginHandler
 };

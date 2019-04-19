@@ -11,10 +11,6 @@ const hashPassword = (password, callback) => {
     });
 };
 
-const comparePasswords = (password, hashedPassword, callback) => {
-    console.log('I have gone into compare.')
-    bcrypt.compare(password, hashedPassword, callback);
-};
 
 // to test hashPassword
 // hashPassword('abc123', (err, result) => {

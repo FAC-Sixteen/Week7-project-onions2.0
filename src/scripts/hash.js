@@ -11,13 +11,6 @@ const hashPassword = (password, callback) => {
     });
 };
 
-const comparePasswords = (password, hashedPassword) => {
-    return new Promise((resolve, reject) => {
-        
-        bcrypt.compare(password, hashedPassword);
-    })
-
-};
 
 // to test hashPassword
 // hashPassword('abc123', (err, result) => {

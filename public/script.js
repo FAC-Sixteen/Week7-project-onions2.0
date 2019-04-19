@@ -75,6 +75,9 @@ const getOpinionTable = (e) => {
     //sets the value of the hidden input to the selected action's id
     //for postData to use
     formActionId.value = highlitAction;
+
+    e.target.parentElement.classList.add('selected');
+
 fetch( urlToSend)
     .then(response => {
         if (response.ok) {

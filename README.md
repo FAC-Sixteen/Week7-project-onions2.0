@@ -13,10 +13,11 @@ This project is hosted on Heroku: http://lost-and-fac.herokuapp.com/
 
 
 ## How to set :up: ?
-- git clone this repo
-- in the terminal run `npm i` to install all dependecies 
+- git clone and cd into this repo
+- in the terminal run `npm i` to install all dependencies 
 - run `npm start` and view on localhost:7007 in your browser
-- You can run `npm test` to see 
+- You can run `npm run go` to run with nodemon
+> Currently, we haven't fully set up the login process so go to localhost:7007/public/login.html to access the login page. A dummy user has been set up to test the login functionality: Username- jk Password - aDuMmy
 
 ## 🎯 Goals
 - [ ] login + sign up page

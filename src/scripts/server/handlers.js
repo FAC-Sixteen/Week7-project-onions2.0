@@ -7,7 +7,7 @@ const getData = require('../queries/getData');
 const postData = require('../queries/postData');
 const loginQuery = require('../queries/loginQuery');
 
-const { hashPassword,comparePasswords } = require( '../hash.js')
+const { hashPassword,comparePasswords } = require( '../hash.js');
 
 const serverError = (err, response) => {
     response.writeHead(500, {'Content-Type': 'text/html'});
@@ -24,9 +24,9 @@ const loginHandler = (request, response) => {
         console.log(data);
         const { username, password } = qs.parse(data);
            
-            loginQuery(username, (err, storedPassword) => {
-                if (err) return serverError(err, response);
-                const isMatch = bcrypt.compare(password, storedPassword);
+            loginQuery(username) 
+             .then(storedPassword => {bcrypt.compare(password, storedPassword)})
+            .then(isMatch => {
                 if (!isMatch) { 
                     response.writeHead(401, {'Content-Type':'text/html'});
                     response.end('Incorrect password!');
@@ -35,6 +35,12 @@ const loginHandler = (request, response) => {
                         {'Location': '/',
                          'Set-Cookie':'logged_in=true'});
                     return response.end();
+                }
+                })
+                .catch (err) => {
+                    console.log(err ,'compare failed');
+                      response.writeHead(401, {'Content-Type':'text/html'});
+                    response.end('compare failled!');
                 }
                 });                
         });

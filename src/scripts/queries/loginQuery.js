@@ -1,9 +1,11 @@
 const dbConnection = require('../../database/db_connection');
 
-const loginQuery = (username, cb) => {
+const loginQuery = (username) => {
+    return new Promise ((resolve, reject) => {
    dbConnection.query('SELECT password FROM users where username = $1',[username], (err, res) => {
-        if (err) return cb(err);
-        cb(null, res.rows);
+        if (err) reject(err);
+       else resolve(res.rows);
+   })
     });
 }
 

@@ -44,6 +44,10 @@ This project is hosted on Heroku: http://lost-and-fac.herokuapp.com/
 5. add new function for hashing, validating
 6. add new routes, handlers and queries for login 
 
+![](https://i.imgur.com/BD8muSa.jpg)
+
+![](https://i.imgur.com/DzVWUyq.jpg)
+
 ## :sweat_drops: Problems
 * very little time
 * struggled to understand callbacks

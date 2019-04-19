@@ -22,28 +22,27 @@ const loginHandler = (request, response) => {
     });
     request.on('end', () => {
         console.log(data);
-        const { username, password } = qs.parse(data);
-           
-            loginQuery(username) 
-             .then(storedPassword => {bcrypt.compare(password, storedPassword)})
-            .then(isMatch => {
-                if (!isMatch) { 
+        const { login_username, login_password } = qs.parse(data);
+            loginQuery(login_username) 
+             .then(storedPassword => {
+                 return bcrypt.compare(login_password, storedPassword)})
+             .then(res => {
+                if (res === false) { 
                     response.writeHead(401, {'Content-Type':'text/html'});
                     response.end('Incorrect password!');
-                } else if (isMatch) {
+                } else if (res) {
                     response.writeHead(302, 
                         {'Location': '/',
                          'Set-Cookie':'logged_in=true'});
                     return response.end();
                 }
                 })
-                .catch (err) => {
+                .catch(err => {
                     console.log(err ,'compare failed');
-                      response.writeHead(401, {'Content-Type':'text/html'});
-                    response.end('compare failled!');
-                }
-                });                
-        });
+                    response.writeHead(401, {'Content-Type':'text/html'});
+                    response.end('compare failed!');
+                })
+        });                
     };
 
 const homeHandler = response => {

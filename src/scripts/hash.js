@@ -19,7 +19,7 @@ const hashPassword = (password, callback) => {
     // console.log(storedSalt, ' is storedSalt outside')
 // });
 
-module.exports = {
-    hashPassword,
-    comparePasswords
-}
+// module.exports = {
+//     hashPassword,
+//     comparePasswords
+// }

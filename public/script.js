@@ -77,6 +77,7 @@ const getOpinionTable = (e) => {
     formActionId.value = highlitAction;
 
     e.target.parentElement.classList.add('selected');
+    
 
 fetch( urlToSend)
     .then(response => {
